@@ -5,7 +5,7 @@ import classnames from 'classnames';
 const cn = classnames.bind(styles);
 
 export interface IButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ComponentPropsWithoutRef<'button'> {}
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   ({ children, ...props }, ref) => {

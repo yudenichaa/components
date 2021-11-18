@@ -3,7 +3,7 @@ import { Button, IButtonProps } from './Button';
 
 export default {
   component: Button,
-  title: 'Atoms/Button',
+  title: 'Lego/Atoms/Button',
 } as Meta;
 
 const Template: Story<IButtonProps> = ({ children, ...args }) => (
