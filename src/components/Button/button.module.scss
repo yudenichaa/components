@@ -1,26 +1,82 @@
+$button-horizontal-padding: 12px;
+$button-vertical-padding: 24px;
+
 .button {
-  padding: 12px 24px;
+  padding: $button-horizontal-padding $button-vertical-padding;
   border: 0;
-  background-color: #1890ff;
   border-radius: 24px;
-  color: #fff;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition-duration: 0.33s;
-  transition-property: background-color;
   white-space: pre-line;
-
-  &:hover:enabled {
-    background-color: #40a9ff;
-  }
-
-  &:active {
-    background-color: #096dd9;
-  }
+  transition-duration: 0.33s;
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
+  }
+
+  &_primary {
+    background-color: #1890ff;
+    color: #fff;
+    transition-property: background-color;
+
+    &:hover:enabled {
+      background-color: #40a9ff;
+    }
+
+    &:active:enabled {
+      background-color: #096dd9;
+    }
+  }
+
+  &_primary-outlined {
+    border: 1px solid #1890ff;
+    padding: $button-horizontal-padding - 1 $button-vertical-padding - 1;
+    background-color: #fff;
+    color: #1890ff;
+    transition-property: border-color, color, background-color;
+
+    &:hover:enabled {
+      border-color: #096dd9;
+      color: #096dd9;
+      background-color: rgba(25, 118, 210, 0.04);
+    }
+
+    &:active:enabled {
+      background-color: rgba(25, 118, 210, 0.15);
+    }
+  }
+
+  &_danger {
+    background-color: #ff4d4f;
+    color: #fff;
+    transition-property: background-color;
+
+    &:hover:enabled {
+      background-color: #d32f2f;
+    }
+
+    &:active:enabled {
+      background-color: #b81d1d;
+    }
+  }
+
+  &_danger-outlined {
+    border: 1px solid rgba(211, 47, 47, 0.5);
+    padding: $button-horizontal-padding - 1 $button-vertical-padding - 1;
+    background-color: #fff;
+    color: #d32f2f;
+    transition-property: border-color, background-color, color;
+
+    &:hover:enabled {
+      border-color: #b81d1d;
+      color: #b81d1d;
+      background-color: rgba(211, 47, 47, 0.04);
+    }
+
+    &:active:enabled {
+      background-color: rgba(211, 47, 47, 0.15);
+    }
   }
 }

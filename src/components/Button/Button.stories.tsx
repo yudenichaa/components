@@ -15,9 +15,27 @@ Primary.args = {
   children: 'Button text',
 };
 
-export const WithNewLine = Template.bind({});
-WithNewLine.args = {
-  children: 'Line 1\nLine 2',
+export const PrimaryOutlined = Template.bind({});
+PrimaryOutlined.args = {
+  children: 'Primary outlined',
+  variant: 'primary-outlined',
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  children: 'Button text',
+  variant: 'danger',
+};
+
+export const DangerOutlined = Template.bind({});
+DangerOutlined.args = {
+  children: 'Button text',
+  variant: 'danger-outlined',
+};
+
+export const Multiline = Template.bind({});
+Multiline.args = {
+  children: 'First line\nSecond line',
 };
 
 export const Disabled = Template.bind({});

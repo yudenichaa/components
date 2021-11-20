@@ -4,13 +4,24 @@ import classnames from 'classnames/bind';
 
 const cn = classnames.bind(styles);
 
-export interface IButtonProps
-  extends React.ComponentPropsWithoutRef<'button'> {}
+type ButtonVariant =
+  | 'primary'
+  | 'primary-outlined'
+  | 'danger'
+  | 'danger-outlined';
+
+export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+  variant?: ButtonVariant;
+}
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-  ({ children, ...props }, ref) => {
+  ({ variant = 'primary', children, ...props }, ref) => {
     return (
-      <button className={cn('button')} ref={ref} {...props}>
+      <button
+        className={cn('button', `button_${variant}`)}
+        ref={ref}
+        {...props}
+      >
         {children}
       </button>
     );
