@@ -12,7 +12,7 @@ const Template: Story<IButtonProps> = ({ children, ...args }) => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: 'Primary',
+  children: 'Button text',
 };
 
 export const WithNewLine = Template.bind({});
