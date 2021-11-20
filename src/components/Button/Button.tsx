@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import styles from './button.module.scss';
-import classnames from 'classnames';
+import classnames from 'classnames/bind';
 
 const cn = classnames.bind(styles);
 
