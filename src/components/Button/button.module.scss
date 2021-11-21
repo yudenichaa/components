@@ -1,27 +1,26 @@
-$button-horizontal-padding: 12px;
-$button-vertical-padding: 24px;
+$button-line-height: 1.125;
 
 .button {
-  padding: $button-horizontal-padding $button-vertical-padding;
-  border: 0;
-  border-radius: 24px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
+  line-height: $button-line-height;
+  transition: all 0.33s;
   white-space: pre-line;
-  transition-duration: 0.33s;
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
 
-  &_primary {
+  &_variant_primary {
+    border: 0.0625rem solid #1890ff;
     background-color: #1890ff;
     color: #fff;
-    transition-property: background-color;
 
     &:hover:enabled {
+      border-color: #40a9ff;
       background-color: #40a9ff;
     }
 
@@ -30,17 +29,15 @@ $button-vertical-padding: 24px;
     }
   }
 
-  &_primary-outlined {
-    border: 1px solid #1890ff;
-    padding: $button-horizontal-padding - 1 $button-vertical-padding - 1;
+  &_variant_primary-outlined {
+    border: 0.0625rem solid #1890ff;
     background-color: #fff;
     color: #1890ff;
-    transition-property: border-color, color, background-color;
 
     &:hover:enabled {
       border-color: #096dd9;
-      color: #096dd9;
       background-color: rgba(25, 118, 210, 0.04);
+      color: #096dd9;
     }
 
     &:active:enabled {
@@ -48,12 +45,13 @@ $button-vertical-padding: 24px;
     }
   }
 
-  &_danger {
+  &_variant_danger {
+    border: 0.0625rem solid rgba(211, 47, 47, 0.5);
     background-color: #ff4d4f;
     color: #fff;
-    transition-property: background-color;
 
     &:hover:enabled {
+      border-color: #d32f2f;
       background-color: #d32f2f;
     }
 
@@ -62,21 +60,60 @@ $button-vertical-padding: 24px;
     }
   }
 
-  &_danger-outlined {
-    border: 1px solid rgba(211, 47, 47, 0.5);
-    padding: $button-horizontal-padding - 1 $button-vertical-padding - 1;
+  &_variant_danger-outlined {
+    border: 0.0625rem solid rgba(211, 47, 47, 0.5);
     background-color: #fff;
     color: #d32f2f;
-    transition-property: border-color, background-color, color;
 
     &:hover:enabled {
       border-color: #b81d1d;
-      color: #b81d1d;
       background-color: rgba(211, 47, 47, 0.04);
+      color: #b81d1d;
     }
 
     &:active:enabled {
       background-color: rgba(211, 47, 47, 0.15);
+    }
+  }
+
+  &_size_small {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+  }
+
+  &_size_normal {
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+  }
+
+  &_size_large {
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+  }
+
+  &_text-align_start {
+    text-align: start;
+  }
+
+  &_text-align_center {
+    text-align: center;
+  }
+
+  &_text-align_end {
+    text-align: end;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 0.625rem;
+
+    svg {
+      width: 1em * $button-line-height;
+      height: 1em * $button-line-height;
     }
   }
 }

@@ -10,19 +10,42 @@ type ButtonVariant =
   | 'danger'
   | 'danger-outlined';
 
+type ButtonSize = 'small' | 'normal' | 'large';
+
+type ButtonTextAlign = 'start' | 'center' | 'end';
+
 export interface IButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   variant?: ButtonVariant;
+  icon?: React.ReactNode;
+  size?: ButtonSize;
+  textAlign?: ButtonTextAlign;
 }
 
 export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-  ({ variant = 'primary', children, ...props }, ref) => {
+  (
+    {
+      variant = 'primary',
+      size = 'normal',
+      textAlign = 'center',
+      icon,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <button
-        className={cn('button', `button_${variant}`)}
+        className={cn(
+          'button',
+          `button_variant_${variant}`,
+          `button_size_${size}`,
+          `button_text-align_${textAlign}`
+        )}
         ref={ref}
         {...props}
       >
-        {children}
+        {icon && <span className={cn('button__icon')}>{icon}</span>}
+        <span>{children}</span>
       </button>
     );
   }
