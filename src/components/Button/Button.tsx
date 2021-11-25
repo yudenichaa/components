@@ -35,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
   ) => {
     return (
       <button
+        {...props}
         className={cn(
           'button',
           `button_variant_${variant}`,
@@ -42,7 +43,6 @@ export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
           `button_text-align_${textAlign}`
         )}
         ref={ref}
-        {...props}
       >
         {icon && <span className={cn('button__icon')}>{icon}</span>}
         <span>{children}</span>

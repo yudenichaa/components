@@ -40,7 +40,8 @@ function createComponent(componentName) {
   fs.mkdirSync(componentFolder);
   fs.writeFileSync(
     path.join(componentFolder, 'index.ts'),
-    `export { default } from './${componentName}';`
+    `export { default } from './${componentName}';
+`
   );
   const componentNameKebabCase = componentName
     .match(/[A-Z][a-z]+/g)
@@ -56,10 +57,13 @@ function createComponent(componentName) {
   fs.writeFileSync(
     path.join(componentFolder, `${componentName}.tsx`),
     `import styles from './${componentNameKebabCase}.module.scss';
-import cn from 'classnames';
+import classnames from 'classnames/bind';
+
+const cn = classnames.bind(styles);
 
 export default function ${componentName}() {
-  return <p>${componentName}</p>;
-}`
+  return <div className={cn('${componentNameKebabCase}')}>${componentName}</div>;
+}
+`
   );
 }
