@@ -5,13 +5,13 @@ import classnames from 'classnames/bind';
 const cn = classnames.bind(styles);
 
 export interface IInputProps extends React.ComponentPropsWithoutRef<'input'> {
-  leftIcon: React.ReactNode;
-  rightIcon: React.ReactNode;
-  label: string;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  label?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ label, ...props }, ref) => {
+  ({ label, leftIcon, rightIcon, ...props }, ref) => {
     return (
       <div className={cn('input')}>
         {label ? (

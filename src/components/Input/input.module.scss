@@ -41,7 +41,7 @@
   }
 
   &__field:not(:placeholder-shown) + &__label-text {
-    top: 0px;
+    top: 0;
     transform: translateY(-50%);
     font-size: 0.8rem;
   }
