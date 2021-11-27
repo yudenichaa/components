@@ -28,6 +28,12 @@ PrimaryLarge.args = {
   size: 'large',
 };
 
+export const PrimaryFullWidth = Template.bind({});
+PrimaryFullWidth.args = {
+  children: 'Button text',
+  fullWidth: true,
+};
+
 export const PrimaryOutlined = Template.bind({});
 PrimaryOutlined.args = {
   children: 'Primary outlined',
@@ -61,8 +67,8 @@ MultilineTextAlignStart.args = {
   textAlign: 'start',
 };
 
-export const MultilineTextAligEnd = Template.bind({});
-MultilineTextAligEnd.args = {
+export const MultilineTextAlignEnd = Template.bind({});
+MultilineTextAlignEnd.args = {
   children: 'First line\nSecond line',
   textAlign: 'end',
 };
@@ -77,6 +83,45 @@ export const PrimaryWithIcon = Template.bind({});
 PrimaryWithIcon.args = {
   children: 'With icon',
   icon: <SearchIcon />,
+};
+
+export const PrimarySmallWithIcon = Template.bind({});
+PrimarySmallWithIcon.args = {
+  children: 'Button text',
+  size: 'small',
+  icon: <SearchIcon />,
+};
+
+export const PrimaryLargeWithIcon = Template.bind({});
+PrimaryLargeWithIcon.args = {
+  children: 'Button text',
+  size: 'large',
+  icon: <SearchIcon />,
+};
+
+export const PrimaryFullWidthWithIcon = Template.bind({});
+PrimaryFullWidthWithIcon.args = {
+  children: 'Button text',
+  fullWidth: true,
+  icon: <SearchIcon />,
+};
+
+export const PrimaryFullWidthWithIconJustifyContentStart = Template.bind({});
+PrimaryFullWidthWithIconJustifyContentStart.args = {
+  children: 'Button text',
+  fullWidth: true,
+  icon: <SearchIcon />,
+  justifyContent: 'start',
+};
+
+export const PrimaryFullWidthMultilineWithIconTextAlignStart = Template.bind(
+  {}
+);
+PrimaryFullWidthMultilineWithIconTextAlignStart.args = {
+  children: 'First line\nSecond line',
+  fullWidth: true,
+  icon: <SearchIcon />,
+  textAlign: 'start',
 };
 
 export const PrimaryOutlinedWithIcon = Template.bind({});
