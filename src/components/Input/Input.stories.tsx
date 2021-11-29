@@ -4,6 +4,13 @@ import { Input, IInputProps } from './Input';
 export default {
   component: Input,
   title: 'Lego/Atoms/Input',
+  decorators: [
+    (Story) => (
+      <div style={{ width: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<IInputProps> = ({ children, ...args }) => (
@@ -21,4 +28,21 @@ PrimaryWithPlaceholder.args = {
 export const PrimaryWithLabel = Template.bind({});
 PrimaryWithLabel.args = {
   label: 'Hello world',
+};
+
+export const Filled = Template.bind({});
+Filled.args = {
+  variant: 'filled',
+};
+
+export const FilledWithPlaceholder = Template.bind({});
+FilledWithPlaceholder.args = {
+  placeholder: 'Hello world',
+  variant: 'filled',
+};
+
+export const FilledWithLabel = Template.bind({});
+FilledWithLabel.args = {
+  label: 'Hello world',
+  variant: 'filled',
 };
