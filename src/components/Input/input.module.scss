@@ -2,13 +2,8 @@
   $root: &;
 
   position: relative;
-
-  &__label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
+  width: 100%;
+  font-size: 1rem;
 
   &__label-text {
     position: absolute;
@@ -24,23 +19,35 @@
 
   &__field {
     width: 100%;
-    font-size: 1rem;
     outline: 0;
     transition: all 0.33s;
+    font-size: inherit;
 
     &::placeholder {
       opacity: 1;
     }
-  }
 
-  &__label &__field {
-    &::placeholder {
-      opacity: 0;
+    &_without-placeholder {
+      &::placeholder {
+        opacity: 0;
+      }
     }
   }
 
   &__field:not(:placeholder-shown) + &__label-text {
     cursor: default;
+  }
+
+  &__left-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+
+    svg {
+      height: 1.2em;
+      object-fit: contain;
+    }
   }
 
   &_variant_primary {
@@ -51,12 +58,25 @@
     $border-width: 1px;
     $label-font-size-when-filled: 0.85rem;
 
+    @mixin label-background_with-placeholder {
+      top: 0;
+      background-color: $background-color;
+      color: $background-color;
+      transform: none;
+    }
+
     #{$root}__label-text {
       z-index: 2;
       top: 50%;
       left: $horizontal-padding + 1;
       color: $placeholder-color;
       transform: translateY(-50%);
+
+      &_with-placeholder {
+        top: 0;
+        color: #4e4e4e;
+        font-size: $label-font-size-when-filled;
+      }
     }
 
     #{$root}__label-background {
@@ -70,6 +90,10 @@
       font-size: $label-font-size-when-filled;
       transform: translateY(-50%);
       transition: all 0.18s;
+
+      &_with-placeholder {
+        @include label-background_with-placeholder;
+      }
     }
 
     #{$root}__field {
@@ -80,6 +104,10 @@
 
       &:focus {
         border-color: rgb(25, 118, 210);
+
+        & + #{$root}__label-text_with-placeholder {
+          color: rgb(25, 118, 210);
+        }
       }
 
       &::placeholder {
@@ -90,7 +118,6 @@
     #{$root}__field:not(:placeholder-shown) {
       & + #{$root}__label-text {
         top: 0;
-        color: #4e4e4e;
         font-size: $label-font-size-when-filled;
       }
 
@@ -99,10 +126,7 @@
       }
 
       & ~ #{$root}__label-background {
-        top: 0;
-        background-color: $background-color;
-        color: $background-color;
-        transform: none;
+        @include label-background_with-placeholder;
       }
     }
   }

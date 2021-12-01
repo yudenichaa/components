@@ -132,8 +132,8 @@ $button-line-height: 1.125;
     margin-right: 0.625rem;
 
     svg {
-      width: 1em * $button-line-height;
       height: 1em * $button-line-height;
+      object-fit: contain;
     }
   }
 }

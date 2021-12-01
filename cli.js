@@ -40,7 +40,7 @@ function createComponent(componentName) {
   fs.mkdirSync(componentFolder);
   fs.writeFileSync(
     path.join(componentFolder, 'index.ts'),
-    `export { default } from './${componentName}';
+    `export * from './${componentName}';
 `
   );
   const componentNameKebabCase = componentName
