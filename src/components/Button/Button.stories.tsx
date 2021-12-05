@@ -5,6 +5,13 @@ import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 export default {
   component: Button,
   title: 'Lego/Atoms/Button',
+  decorators: [
+    (Story) => (
+      <div style={{ width: '320px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta;
 
 const Template: Story<IButtonProps> = ({ children, ...args }) => (

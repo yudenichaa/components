@@ -22,7 +22,7 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       <div className={cn('input', `input_variant_${variant}`)}>
         {leftIcon && <div className={cn('input__left-icon')}>{leftIcon}</div>}
         {label ? (
-          <label>
+          <label className={cn('input__label')}>
             <input
               {...props}
               className={cn('input__field', {

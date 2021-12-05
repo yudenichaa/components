@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
 
+  &__label {
+    width: 100%;
+  }
+
   &__label-text {
     position: absolute;
     cursor: text;
