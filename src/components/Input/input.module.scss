@@ -5,6 +5,9 @@
   width: 100%;
   font-size: 1rem;
 
+  display: flex;
+  align-items: center;
+
   &__label-text {
     position: absolute;
     cursor: text;
@@ -38,17 +41,19 @@
     cursor: default;
   }
 
-  &__left-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 12px;
+  // &__left-icon {
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   left: 12px;
+  //   display: flex;
+  //   align-items: center;
 
-    svg {
-      height: 1.2em;
-      object-fit: contain;
-    }
-  }
+  //   svg {
+  //     height: 1.2em;
+  //     object-fit: contain;
+  //   }
+  // }
 
   &_variant_primary {
     $horizontal-padding: 14px;
@@ -134,11 +139,17 @@
   &_variant_filled {
     $horizontal-padding: 10px;
     $placeholder-color: rgba(0, 0, 0, 0.5);
-    $top-padding: 24px;
+    $top-padding: 25px;
     $border-bottom-width: 1px;
 
+    @mixin label-text_with-placeholder {
+      top: 3px;
+      color: #4e4e4e;
+      font-size: 0.85rem;
+    }
+
     #{$root}__field {
-      padding: $top-padding $horizontal-padding 8px $horizontal-padding;
+      padding: $top-padding $horizontal-padding 7px $horizontal-padding;
       border: 0;
       border-bottom: $border-bottom-width solid #20262d;
       background-color: rgba(0, 0, 0, 0.06);
@@ -156,13 +167,15 @@
       top: $top-padding;
       left: $horizontal-padding;
       color: $placeholder-color;
+
+      &_with-placeholder {
+        @include label-text_with-placeholder;
+      }
     }
 
     #{$root}__field:not(:placeholder-shown) {
       & + #{$root}__label-text {
-        top: 4px;
-        color: #4e4e4e;
-        font-size: 0.85rem;
+        @include label-text_with-placeholder;
       }
     }
   }
