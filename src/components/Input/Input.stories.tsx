@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import { Input, IInputProps } from './Input';
-// import { ReactComponent as SearchIcon } from 'assets/icons/search.svg';
 
 export default {
   component: Input,
@@ -36,11 +35,6 @@ PrimaryWithLabelAndPlaceholder.args = {
   label: 'Hello world',
   placeholder: 'Placeholder',
 };
-
-// export const PrimaryWithLeftIcon = Template.bind({});
-// PrimaryWithLeftIcon.args = {
-//   leftIcon: <SearchIcon />,
-// };
 
 export const Filled = Template.bind({});
 Filled.args = {
